@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KataAcademyTest(MinimalRequirements).iml" filepath="$PROJECT_DIR$/KataAcademyTest(MinimalRequirements).iml" />
+      <module fileurl="file://$PROJECT_DIR$/KataAcademyCalculator.iml" filepath="$PROJECT_DIR$/KataAcademyCalculator.iml" />
     </modules>
   </component>
 </project>
