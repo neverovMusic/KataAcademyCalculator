@@ -10,7 +10,7 @@ public class Main {
         try{
             System.out.println("Введите математическое выражение:");
             String s = userInput.nextLine();
-            System.out.println(calc(s));
+            System.out.print(calc(s));
         }
         catch(CustomException e){
             System.out.println("Выполнение метода было прервано");
@@ -51,9 +51,10 @@ public class Main {
         input = input.replaceAll("[*]" ," * ");
 
         String [] expression = input.split(" ");
-
-        expression[0] = String.valueOf(romanToDecimal(expression[0]));
-        expression[2] = String.valueOf(romanToDecimal(expression[2]));
+        if(isRoman){
+            expression[0] = String.valueOf(romanToDecimal(expression[0]));
+            expression[2] = String.valueOf(romanToDecimal(expression[2]));
+        }
 
         if(Integer.parseInt(expression[0])>10 || Integer.parseInt(expression[2]) > 10){
             throw new CustomException("throws Exception //т.к. поддерживаются только числа до 10 включительно");
@@ -69,6 +70,8 @@ public class Main {
         if(expression.length > 3){
             throw new CustomException("throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
         }
+
+       // System.out.println(expression[0] + " " + expression[1] + " " + expression[2] + " = ");
 
         if(expression[1].equals("+")){ answer = Integer.parseInt(expression[0]) + Integer.parseInt(expression[2]); }
         if(expression[1].equals("*")){ answer = Integer.parseInt(expression[0]) * Integer.parseInt(expression[2]); }
@@ -90,6 +93,7 @@ public class Main {
         }
         return  String.valueOf(answer);
     }
+
     static int value(char r) {
         if (r == 'I') return 1;     if (r == 'V') return 5;
         if (r == 'X') return 10;    if (r == 'L') return 50;
